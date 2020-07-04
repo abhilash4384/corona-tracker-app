@@ -1,13 +1,11 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, {memo} from "react";
+import { View, Text, } from "react-native";
 import AnimateNumber from "react-native-animate-number";
 
 import styles from "./Styles";
 
 const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
-  if (!confirmed) {
-    return <Text>Loading....</Text>;
-  }
+  console.log('called..!');
   return (
     <View style={styles.container}>
       <View style={{ ...styles.card, ...styles.infected }}>
@@ -47,4 +45,4 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   );
 };
 
-export default Cards;
+export default memo(Cards);

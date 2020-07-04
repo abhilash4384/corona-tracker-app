@@ -1,21 +1,13 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  autocompleteContainer: {
-    flex: 1,
-    left: 0,
-    position: "absolute",
-    right: 0,
-    top: 0,
-    zIndex: 1,
-  },
   container: {
+    padding: 5,
     paddingTop: 15,
   },
-  itemText: {
-    fontSize: 15,
-    margin: 2
-  }
+  containerStyle: { height: 40 },
+  autoCompleteStyle: { backgroundColor: "#f3f3f3" },
+  dropDownStyle: { backgroundColor: "#fff", zIndex: 15, elevation: 10 },
 });
 
 export default styles;

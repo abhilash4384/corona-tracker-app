@@ -24,23 +24,26 @@ const CountryPicker = ({ handleCountryChange }) => {
     fetchAPI();
   }, []);
 
+  const onChangeItem = (item) => {
+    setState({country: item.value});
+    handleCountryChange(item.value);
+  };
+  console.log('got called country picker');
+
   return (
     <View style={styles.container}>
       <DropDownPicker
+        min={5}
+        max={7}
         searchable={true}
         searchablePlaceholder="Search Country..."
         searchableError="Not Found"
         items={fetchedCountries}
         defaultValue={""}
-        containerStyle={{ height: 40 }}
-        style={{ backgroundColor: "#f3f3f3" }}
-        dropDownStyle={{ backgroundColor: "#fff",  zIndex: 15,
-        elevation: 10 }}
-        onChangeItem={(item) =>
-          setState({
-            country: item.value,
-          })
-        }
+        containerStyle={styles.containerStyle}
+        style={styles.autoCompleteStyle}
+        dropDownStyle={styles.dropDownStyle}
+        onChangeItem={onChangeItem}
       />
     </View>
   );

@@ -20,6 +20,7 @@ export const fetchData = async (country) => {
     };
   } catch (error) {
     console.log('fetchData', error);
+    return null;
   }
 };
 
@@ -31,10 +32,11 @@ export const fetchDailyData = async () => {
       deaths: dailyData.deaths.total,
       date: dailyData.reportDate,
     }));
-
+    console.log('dd = ', data);
     return modifiedData;
   } catch (error) {
     console.log('fetchDailyData', error);
+    return null;
   }
 };
 
