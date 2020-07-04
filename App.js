@@ -1,8 +1,9 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { Cards, Chart, CountryPicker } from "./src/components";
-import styles from "./App.module.css";
+import { ScrollView, Text, View } from "react-native";
+import { Cards, CountryPicker } from "./src/components";
+import styles from "./Styles";
 import { fetchData } from "./src/api";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 class App extends React.Component {
   state = {
@@ -13,7 +14,7 @@ class App extends React.Component {
   async componentDidMount() {
     const fetchedData = await fetchData();
     this.setState({ data: fetchedData });
-    console.log(fetchedData);
+    console.log("component did mount = ", fetchedData);
   }
 
   handleCountryChange = async (country) => {
@@ -24,22 +25,22 @@ class App extends React.Component {
   render() {
     const { data, country } = this.state;
     return (
-      <View style={styles.container}>
-        <Cards data={data} />
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
+      <View style={{ flex: 1 }}>
+        <ScrollView style={styles.container}>
+          <View style={{ height: 40 }} />
+          <CountryPicker handleCountryChange={this.handleCountryChange} />
+          <Cards data={data} />
+          {/* {data && (
+            <>
+              <CountryPicker handleCountryChange={this.handleCountryChange} />
+            </>
+          )} */}
+
+          {/* <Chart data={data} country={country} /> */}
+        </ScrollView>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: rgb(250, 250, 250),
-  },
-});
 
 export default App;

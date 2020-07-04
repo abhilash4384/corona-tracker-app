@@ -10,26 +10,38 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   }
   return (
     <View style={styles.container}>
-      <View style={[...styles.card, ...styles.infected]}>
-        <Text color="textSecondary" gutterBottom>
-          Infected
+      <View style={{ ...styles.card, ...styles.infected }}>
+        <Text style={styles.textStyle} gutterBottom>
+          Infected By Covid
         </Text>
-        <AnimateNumber value={confirmed.value} />
-        <Text color="textSecondary">{new Date(lastUpdate).toDateString()}</Text>
+        <Text style={styles.textStyle}>
+          <AnimateNumber interval={10} value={confirmed.value} />
+        </Text>
+        <Text style={styles.textStyle}>
+          {new Date(lastUpdate).toDateString()}
+        </Text>
       </View>
-      <View style={[...styles.card, ...styles.recovered]}>
-        <Text color="textSecondary" gutterBottom>
-          Recovered
+      <View style={{ ...styles.card, ...styles.recovered }}>
+        <Text style={styles.textStyle} gutterBottom>
+          Recovered from Covid
         </Text>
-        <AnimateNumber value={recovered.value} />
-        <Text color="textSecondary">{new Date(lastUpdate).toDateString()}</Text>
+        <Text style={styles.textStyle}>
+          <AnimateNumber interval={10} value={recovered.value} />
+        </Text>
+        <Text style={styles.textStyle}>
+          {new Date(lastUpdate).toDateString()}
+        </Text>
       </View>
-      <View style={[...styles.card, ...styles.deaths]}>
-        <Text color="textSecondary" gutterBottom>
-          Deaths
+      <View style={{ ...styles.card, ...styles.deaths }}>
+        <Text style={styles.textStyle} gutterBottom>
+          Deaths by Covid
         </Text>
-        <AnimateNumber value={deaths.value} />
-        <Text color="textSecondary">{new Date(lastUpdate).toDateString()}</Text>
+        <Text style={styles.textStyle}>
+          <AnimateNumber interval={10} value={deaths.value} />
+        </Text>
+        <Text style={styles.textStyle}>
+          {new Date(lastUpdate).toDateString()}
+        </Text>
       </View>
     </View>
   );
