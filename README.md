@@ -9,15 +9,15 @@ CORONA TRACKER APP is an React-Native tool. It is an app to show the COVID-19 vi
 # Technology
 
 -React
--React-Native
+-ReactNative
 -Expo
 
 # Libraries
 
-- Axios (npm i axios)
-- Animating Numbers (npm i react-native-animate-number)
-- Bar/Line Chart (npm i react-native-chart-kit)
-- Autocomplete (npm i react-native-dropdown-picker)
+- Axios: npm i axios
+- Animating Numbers: npm i react-native-animate-number
+- Bar/Line Chart: npm i react-native-chart-kit
+- Autocomplete: npm i react-native-dropdown-picker
 
 # Project Setup
 
